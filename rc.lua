@@ -17,6 +17,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+-- Component lib
+local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -266,7 +268,7 @@ awful.screen.connect_for_each_screen(function(s)
 		s.mytasklist, -- Middle widget
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
-			mykeyboardlayout,
+			logout_menu_widget({font = 'JetBrainsMono NF Regular 8'}),
 			wibox.widget.systray(),
 			mytextclock,
 			s.mylayoutbox,
