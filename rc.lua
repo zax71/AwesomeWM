@@ -19,6 +19,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 -- Component lib
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
+local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -56,7 +57,7 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "zaxTheme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-local terminal = "x-terminal-emulator"
+local terminal = "kitty"
 -- editor = os.getenv("EDITOR") or "editor"
 
 -- Default modkey.
@@ -268,7 +269,11 @@ awful.screen.connect_for_each_screen(function(s)
 		s.mytasklist, -- Middle widget
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
-			logout_menu_widget({font = 'JetBrainsMono NF Regular 8'}),
+			logout_menu_widget({ font = "JetBrainsMono NF Regular 8" }),
+			volume_widget({
+				device = "default",
+				widget_type = "arc",
+			}),
 			wibox.widget.systray(),
 			mytextclock,
 			s.mylayoutbox,
@@ -283,6 +288,18 @@ root.buttons(gears.table.join(awful.button({}, 4, awful.tag.viewnext), awful.but
 
 -- {{{ Key bindings
 local globalkeys = gears.table.join(
+
+	-- Volume controls
+	awful.key({}, "XF86AudioRaiseVolume", function()
+		volume_widget.inc()
+	end),
+	awful.key({}, "XF86AudioLowerVolume", function()
+		volume_widget.dec()
+	end),
+	awful.key({}, "XF86AudioMute", function()
+		volume_widget.toggle()
+	end),
+
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
 	awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
 	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
@@ -628,6 +645,6 @@ beautiful.taglist_fg_empty = "#11111b"
 beautiful.taglist_fg_occupied = beautiful.taglist_fg_empty
 
 -- Autostart
-awful.spawn.with_shell("sh /home/zax/.login.sh")
+-- awful.spawn.with_shell("sh /home/zax/.login.sh")
 awful.spawn.with_shell("discord")
-awful.spawn.with_shell("compton")
+awful.spawn.with_shell("flameshot")
