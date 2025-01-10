@@ -53,8 +53,7 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "zaxTheme/theme.lua")
 
--- This is used later as the default terminal and editor to run.
-local terminal = "kitty"
+
 -- editor = os.getenv("EDITOR") or "editor"
 
 -- Default modkey.

@@ -20,6 +20,8 @@ require("awful.hotkeys_popup.keys")
 -- {{{ Key bindings
 
 local modkey = "Mod4"
+-- This is used later as the default terminal and editor to run.
+local terminal = "kitty"
 local globalkeys = gears.table.join(
 
 	-- Volume controls
