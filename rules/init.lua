@@ -77,7 +77,7 @@ awful.rules.rules = {
 	-- Set Discord to always map on the tag named "2" on screen 2.
 	{ rule = { class = "discord" }, properties = { screen = 2, tag = "2" } },
 
-	-- Set Discord to always map on the tag named "1" on screen 2.
+	-- Set Firefox to always map on the tag named "1" on screen 2.
 	{ rule = { class = "firefox" }, properties = { screen = 2, tag = "1" } },
 }
 -- }}}
