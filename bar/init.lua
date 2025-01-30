@@ -174,29 +174,52 @@ awful.screen.connect_for_each_screen(function(s)
 		},
 	})
 	-- Create the wibox
-	s.mywibox = awful.wibar({ position = "top", screen = s })
+	s.mywibox = awful.wibar({
+		position = "top",
+		screen = s,
+		height = 25,
+		bg = gears.color.transparent,
+	})
 
 	-- Add widgets to the wibox
 	s.mywibox:setup({
-		layout = wibox.layout.align.horizontal,
-		{ -- Left widgets
-			layout = wibox.layout.fixed.horizontal,
-			spacing = 10,
-			s.mytaglist,
-			s.mypromptbox,
-		},
-		s.mytasklist, -- Middle widget
-		{ -- Right widgets
-			layout = wibox.layout.fixed.horizontal,
-			logout_menu_widget({ font = "JetBrainsMono NF Regular 8" }),
-			volume_widget({
-				device = "default",
-				widget_type = "arc",
-			}),
-			wibox.widget.systray(),
-			mytextclock,
-			s.mylayoutbox,
-		},
+		widget = wibox.container.margin,
+		left = 3,
+		right = 3,
+		top = 1,
+		{
+			layout = wibox.layout.align.horizontal,
+			{ -- Left widgets
+				layout = wibox.layout.fixed.horizontal,
+				spacing = 10,
+				s.mytaglist,
+				s.mypromptbox,
+			},
+			s.mytasklist, -- Middle widget
+			{ -- Right widgets
+				widget = wibox.container.background,
+				shape = gears.shape.rounded_rect,
+				bg = beautiful.bg_normal,
+				{
+					widget = wibox.container.margin,
+					left = 5,
+					right = 5,
+					top = 3,
+					bottom = 3,
+					{
+						layout = wibox.layout.fixed.horizontal,
+						logout_menu_widget({ font = "JetBrainsMono NF Regular 8" }),
+						volume_widget({
+							device = "default",
+							widget_type = "arc",
+						}),
+						wibox.widget.systray({opacity=0.0}),
+						mytextclock,
+						s.mylayoutbox,
+					}
+				}
+			}
+	}
 	})
 end)
 -- }}}

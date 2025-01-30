@@ -163,12 +163,12 @@ end)
 
 -- Theming that needs beautiful
 beautiful.useless_gap = 5
-beautiful.tasklist_bg_normal = "#89b4fa"
-beautiful.tasklist_fg_normal = "#11111b"
+beautiful.tasklist_bg_normal = "#4b1d52"
+beautiful.tasklist_fg_normal = "#cdd6f4"
 
-beautiful.taglist_bg_empty = "#89b4fa"
+beautiful.taglist_bg_empty = "#4b1d52"
 beautiful.taglist_bg_occupied = beautiful.taglist_bg_empty
-beautiful.taglist_fg_empty = "#11111b"
+beautiful.taglist_fg_empty = "#cdd6f4"
 beautiful.taglist_fg_occupied = beautiful.taglist_fg_empty
 
 -- Autostart

@@ -14,17 +14,17 @@ local theme = {}
 
 theme.font = "sans 8"
 
-theme.bg_normal = "#1e1e2e"
-theme.bg_focus = "#a6e3a1"
-theme.bg_urgent = "#f38ba8"
+theme.bg_normal = "#14182e"
+theme.bg_focus = "#ad2f45"
+theme.bg_urgent = "#ad2f45"
 theme.bg_minimize = "#444444"
 theme.bg_systray = theme.bg_normal
 
 theme.text_color = "#cdd6f4"
 theme.text_color_dark = "#11111b"
 theme.fg_normal = theme.text_color
-theme.fg_focus = theme.text_color_dark
-theme.fg_urgent = theme.text_color_dark
+theme.fg_focus = theme.text_color
+theme.fg_urgent = theme.text_color
 theme.fg_minimize = theme.text_color
 
 theme.useless_gap = dpi(0)
