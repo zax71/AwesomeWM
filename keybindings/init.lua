@@ -12,7 +12,6 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
-local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -133,10 +132,14 @@ local globalkeys = gears.table.join(
 			history_path = awful.util.get_cache_dir() .. "/history_eval",
 		})
 	end, { description = "lua execute prompt", group = "awesome" }),
-	-- Menubar
+	-- Launcher
 	awful.key({ modkey }, "space", function()
-		menubar.show()
-	end, { description = "show the menubar", group = "launcher" })
+		awful.spawn.with_shell("rofi -show drun")
+	end, { description = "show the launcher", group = "launcher" }),
+
+	awful.key({ modkey }, ".", function()
+		awful.spawn.with_shell("rofi -show emoji")
+	end, { description = "show emoji picker", group = "launcher" })
 )
 
 
