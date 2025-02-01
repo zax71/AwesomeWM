@@ -78,6 +78,12 @@ awful.rules.rules = {
 	{ rule = { class = "discord" }, properties = { screen = 2, tag = "2" } },
 
 	-- Set Firefox to always map on the tag named "1" on screen 2.
-	{ rule = { class = "firefox" }, properties = { screen = 2, tag = "1" } },
+	{ rule = { class = "firefox" }, properties = { screen = 2, tag = "1", maximized = false } },
+
+	-- IntelliJ is always maximized for some reason
+	{ rule = { class = "idea" }, properties = { maximized = false } },
+
+	-- Nautilus is always maximized for some reason
+	{ rule = { class = "org.gnome.Nautilus" }, properties = { maximized = false } },
 }
 -- }}}
