@@ -85,5 +85,8 @@ awful.rules.rules = {
 
 	-- Nautilus is always maximized for some reason
 	{ rule = { class = "org.gnome.Nautilus" }, properties = { maximized = false } },
+
+	-- Libreoffice windows are always maximized for some reason
+	{ rule = { class = "libreoffice" }, properties = { maximized = false } },
 }
 -- }}}
