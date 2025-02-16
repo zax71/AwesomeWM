@@ -30,7 +30,7 @@ awful.rules.rules = {
 			focus = awful.client.focus.filter,
 			raise = true,
 			keys = require('keybindings.clientbindings'),
-			buttons = clientbuttons,
+			buttons = require('keybindings.clientbuttons'),
 			screen = awful.screen.preferred,
 			placement = awful.placement.no_overlap + awful.placement.no_offscreen,
 		},
