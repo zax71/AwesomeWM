@@ -26,10 +26,10 @@ local globalkeys = gears.table.join(
 
 	-- Volume controls
 	awful.key({}, "XF86AudioRaiseVolume", function()
-		volume_widget.inc()
+		volume_widget.inc(5)
 	end),
 	awful.key({}, "XF86AudioLowerVolume", function()
-		volume_widget.dec()
+		volume_widget.dec(5)
 	end),
 	awful.key({}, "XF86AudioMute", function()
 		volume_widget.toggle()
