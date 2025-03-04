@@ -121,8 +121,8 @@ local globalkeys = gears.table.join(
 	end, { description = "Take screenshot with 1 second delay", group = "launcher" }),
 
 	awful.key({ modkey }, "b", function()
-		awful.spawn.with_shell("chromium")
-	end, { description = "Open Browser", group = "launcher" }),
+		awful.spawn.with_shell("firefox")
+	end, { description = "Open Firefox", group = "launcher" }),
 
 	awful.key({ modkey }, "x", function()
 		awful.prompt.run({
