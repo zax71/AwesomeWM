@@ -16,25 +16,15 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
+
 -- {{{ Key bindings
 
 local modkey = "Mod4"
 -- This is used later as the default terminal and editor to run.
 local terminal = "kitty"
+local mediabuttons = require("keybindings.mediabuttons")
 local globalkeys = gears.table.join(
-
-	-- Volume controls
-	awful.key({}, "XF86AudioRaiseVolume", function()
-		volume_widget.inc(5)
-	end),
-	awful.key({}, "XF86AudioLowerVolume", function()
-		volume_widget.dec(5)
-	end),
-	awful.key({}, "XF86AudioMute", function()
-		volume_widget.toggle()
-	end),
-
+	mediabuttons,
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
 	awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
 	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
@@ -142,8 +132,6 @@ local globalkeys = gears.table.join(
 	end, { description = "show emoji picker", group = "launcher" })
 )
 
-
-
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
@@ -187,14 +175,6 @@ for i = 1, 9 do
 	)
 end
 
-
-
-
-
-
 -- Set keys
 root.keys(globalkeys)
 -- }}}
-
-
-
