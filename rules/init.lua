@@ -29,8 +29,8 @@ awful.rules.rules = {
 			border_color = beautiful.border_normal,
 			focus = awful.client.focus.filter,
 			raise = true,
-			keys = require('keybindings.clientbindings'),
-			buttons = require('keybindings.clientbuttons'),
+			keys = require("keybindings.clientbindings"),
+			buttons = require("keybindings.clientbuttons"),
 			screen = awful.screen.preferred,
 			placement = awful.placement.no_overlap + awful.placement.no_offscreen,
 		},
@@ -88,5 +88,13 @@ awful.rules.rules = {
 
 	-- Libreoffice windows are always maximized for some reason
 	{ rule = { class = "libreoffice" }, properties = { maximized = false } },
+
+	-- Davinci Resolve needs a lot of rules...
+	-- TODO: Make the second monitor window work
+	{ rule = { class = "resolve", name = "Project Manager" }, properties = { placement = awful.placement.centered } },
+
+	-- ETCNomad auto setup
+	{ rule = { name = "Eos : 1" }, properties = { maximized = false, screen = 2, tag = "3" } },
+	{ rule = { name = "Eos : 2" }, properties = { maximized = false, screen = 1, tag = "3" } },
 }
 -- }}}
