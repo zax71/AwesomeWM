@@ -96,5 +96,9 @@ awful.rules.rules = {
 	-- ETCNomad auto setup
 	{ rule = { name = "Eos : 1" }, properties = { maximized = false, screen = 2, tag = "3" } },
 	{ rule = { name = "Eos : 2" }, properties = { maximized = false, screen = 1, tag = "3" } },
+
+	-- Yazi drag and drop window needs centering
+
+	{ rule = { class = "Dragon", name = "dragon" }, properties = { placement = awful.placement.centered } },
 }
 -- }}}
